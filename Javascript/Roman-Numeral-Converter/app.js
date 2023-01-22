@@ -17,7 +17,7 @@ function convertToRoman(num) {
     
     let result = "";
     for (let romanNumeral in romanNumerals) {
-        while (num >= romanNumerals[key]) {
+        while (num >= romanNumerals[romanNumeral]) {
             result += romanNumeral;
             num -= romanNumerals[romanNumeral];
         }
@@ -26,3 +26,17 @@ function convertToRoman(num) {
 }
 
 /* MANIÉRE OPTIMISÉE */
+function toRoman(num) {
+    let roman = '';
+    let romanNumerals = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+    let values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    for (let i = 0; i < romanNumerals.length; i++) {
+        while (num >= values[i]) {
+            roman += romanNumerals[i];
+            num -= values[i];
+        }
+    }
+    return roman;
+}
+
+
